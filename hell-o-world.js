@@ -1,13 +1,13 @@
-const http = require("http"); // adds http support
-const hostname = '127.0.0.1'; // set host
+const express = require("express"); // adds http support
+const app = express();
+
 const port = 3000; // set port
 
-const server = http.createServer((request, response) => {
-  response.statusCode = 200;
-  response.setHeader('Content-Type', 'application/json');
-  response.end({ 'body': 'Hello World' });
-})
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+});
 
-server.listen(port, hostname, () => {
-  console.log(`Server is running at http://${hostname}:${port}/`);
-})
+app.listen(port, () => {
+  console.log('Example app listening on port 3000!')
+});
+
